@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->text('cart');
             $table->text('address');
             $table->string('name');
-            $table->integer('cardname');
+            $table->string('cardname');
             $table->integer('cardnumber');
             $table->integer('exmonth');
             $table->integer('cvc');

@@ -72,5 +72,6 @@ class ProductController extends Controller
         $order->cvc = $request->input('cvc');
 
         Auth::user()->orders()->save($order);
+        Session::forget('cart');
     }
 }

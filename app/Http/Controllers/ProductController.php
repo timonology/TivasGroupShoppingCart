@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Cart;
 use App\Product;
+use App\Order;
+use Auth;
 use Illuminate\Http\Request;
 use Session;
 use App\Http\Requests;
@@ -49,5 +51,26 @@ class ProductController extends Controller
         $cart = new Cart($oldCart);
         $total = $cart->totalPrice;
         return view('shop.checkout', ['total' => $total]);
+    }
+
+    public function postCheckout(Request $request)
+    {
+        if(!Session::has('cart'))
+        {
+            return view('shop.shopping-cart');
+        }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+
+        $order = new Order();
+        $order->cart = serialize($cart);
+        $order->name = $request->input('name');
+        $order->address = $request->input('address');
+        $order->cardname = $request->input('cardname');
+        $order->cardnumber = $request->input('cardnumber');
+        $order->exmonth = $request->input('exmonth');
+        $order->cvc = $request->input('cvc');
+
+        Auth::user()->orders()->save($order);
     }
 }

@@ -42,12 +42,6 @@
                             <input type="text" id="exmonth" name="exmonth" class="form-control" required>
                         </div>
                     </div>
-                    <div class="col-xs-6">
-                        <div class="form-group">
-                            <label for="exyear">Card Number</label>
-                            <input type="text" id="exyear" name="exyear" class="form-control" required>
-                        </div>
-                    </div>
                     <div class="col-xs-12">
                         <div class="form-group">
                             <label for="cvc">CVC</label>

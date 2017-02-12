@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use App\Cart;
 use App\Product;
 use App\Order;
-use Auth;
+use App\User;
 use Illuminate\Http\Request;
 use Session;
 use App\Http\Requests;
+use Auth;
 
 class ProductController extends Controller
 {
